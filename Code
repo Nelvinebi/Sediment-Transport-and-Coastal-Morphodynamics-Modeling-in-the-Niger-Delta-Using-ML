@@ -1,0 +1,141 @@
+# ============================================================
+# Sediment Transport & Coastal Morphodynamics Modeling
+# Niger Delta Using Machine Learning (Synthetic Data)
+# ============================================================
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_absolute_error, r2_score
+from sklearn.preprocessing import MinMaxScaler
+
+# ------------------------------------------------------------
+# 1. Synthetic Coastal & Hydrodynamic Dataset Generator
+# ------------------------------------------------------------
+
+def generate_sediment_transport_data(samples=3500):
+    np.random.seed(42)
+
+    # Hydrodynamic variables
+    wave_height_m = np.random.normal(1.8, 0.6, samples).clip(0.3, 4.5)
+    wave_period_s = np.random.normal(7, 2, samples).clip(3, 15)
+    current_velocity_ms = np.random.normal(0.9, 0.3, samples).clip(0.1, 2.5)
+    tidal_range_m = np.random.normal(1.5, 0.5, samples).clip(0.4, 3.8)
+
+    # Sediment properties
+    grain_size_mm = np.random.normal(0.25, 0.1, samples).clip(0.05, 1.0)
+    sediment_density_kgm3 = np.random.normal(2650, 100, samples)
+
+    # Coastal morphology indicators
+    beach_slope = np.random.uniform(0.01, 0.12, samples)
+    shoreline_orientation_deg = np.random.uniform(0, 360, samples)
+
+    # Physics-inspired sediment transport rate (kg/m/s)
+    sediment_transport_rate = (
+        0.35 * wave_height_m +
+        0.25 * current_velocity_ms +
+        0.15 * tidal_range_m +
+        0.10 * (1 / grain_size_mm) +
+        0.10 * beach_slope +
+        0.05 * (wave_period_s / 15)
+    ) * np.random.uniform(0.8, 1.2, samples)
+
+    # Morphodynamic change index (erosion/accretion proxy)
+    morphodynamic_index = (
+        0.6 * sediment_transport_rate +
+        0.3 * current_velocity_ms -
+        0.2 * grain_size_mm
+    )
+
+    return pd.DataFrame({
+        "wave_height_m": wave_height_m,
+        "wave_period_s": wave_period_s,
+        "current_velocity_ms": current_velocity_ms,
+        "tidal_range_m": tidal_range_m,
+        "grain_size_mm": grain_size_mm,
+        "sediment_density_kgm3": sediment_density_kgm3,
+        "beach_slope": beach_slope,
+        "shoreline_orientation_deg": shoreline_orientation_deg,
+        "sediment_transport_rate": sediment_transport_rate,
+        "morphodynamic_index": morphodynamic_index
+    })
+
+# Generate dataset
+df = generate_sediment_transport_data()
+
+# ------------------------------------------------------------
+# 2. Feature Selection & Scaling
+# ------------------------------------------------------------
+
+X = df.drop(["sediment_transport_rate", "morphodynamic_index"], axis=1)
+y = df["sediment_transport_rate"]
+
+scaler = MinMaxScaler()
+X_scaled = scaler.fit_transform(X)
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X_scaled, y, test_size=0.25, random_state=42
+)
+
+# ------------------------------------------------------------
+# 3. Machine Learning Model
+# ------------------------------------------------------------
+
+model = RandomForestRegressor(
+    n_estimators=300,
+    max_depth=18,
+    random_state=42,
+    n_jobs=-1
+)
+
+model.fit(X_train, y_train)
+
+# ------------------------------------------------------------
+# 4. Model Evaluation
+# ------------------------------------------------------------
+
+y_pred = model.predict(X_test)
+
+print("\nSediment Transport Prediction Performance")
+print("------------------------------------------------")
+print(f"Mean Absolute Error (MAE): {mean_absolute_error(y_test, y_pred):.3f}")
+print(f"R² Score: {r2_score(y_test, y_pred):.3f}")
+
+# ------------------------------------------------------------
+# 5. Feature Importance Analysis
+# ------------------------------------------------------------
+
+plt.figure(figsize=(9, 5))
+plt.barh(X.columns, model.feature_importances_)
+plt.xlabel("Importance Score")
+plt.title("Key Drivers of Sediment Transport (Niger Delta)")
+plt.tight_layout()
+plt.show()
+
+# ------------------------------------------------------------
+# 6. Coastal Morphodynamics Scenario Simulation
+# ------------------------------------------------------------
+
+def morphodynamic_scenario():
+    scenario = pd.DataFrame([{
+        "wave_height_m": 3.2,
+        "wave_period_s": 11,
+        "current_velocity_ms": 1.8,
+        "tidal_range_m": 2.9,
+        "grain_size_mm": 0.18,
+        "sediment_density_kgm3": 2650,
+        "beach_slope": 0.08,
+        "shoreline_orientation_deg": 120
+    }])
+
+    scaled = scaler.transform(scenario)
+    predicted_transport = model.predict(scaled)[0]
+
+    print("\nScenario Simulation Result")
+    print("----------------------------------------")
+    print(f"Predicted Sediment Transport Rate: {predicted_transport:.2f} kg/m/s")
+
+morphodynamic_scenario()
