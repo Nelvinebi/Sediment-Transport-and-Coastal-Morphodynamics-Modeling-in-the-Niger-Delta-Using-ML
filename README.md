@@ -84,11 +84,17 @@ This three-dimensional surface plot illustrates how key coastal forcing variable
 
 The plot highlights how variations in environmental conditions such as wave height and current velocity affect morphodynamic responses along the coastline.
 
+![alt text](https://github.com/Nelvinebi/Sediment-Transport-and-Coastal-Morphodynamics-Modeling-in-the-Niger-Delta-Using-ML/blob/main/3D%20Morphohodynamic%20Response%20Surface.png?raw=true)
+
 2️⃣ Key Drivers of Sediment Transport (Niger Delta)
 
 This bar chart displays the relative importance of environmental variables influencing sediment transport predictions.
 
 The results reveal which factors—such as wave energy, current velocity, or sediment properties—play the most significant roles in sediment movement along the Niger Delta coast.
+
+![alt text](https://github.com/Nelvinebi/Sediment-Transport-and-Coastal-Morphodynamics-Modeling-in-the-Niger-Delta-Using-ML/blob/1ea58fb67c29783dfa16f659d6f4ed12718b0feb/Key%20Drivers%20of%20Sediment%20Transport%20(Niger%20Delta).png)
+
+
 
 3️⃣ Scattered Plot of Predicted vs Actual Sediment Transport
 
@@ -96,11 +102,15 @@ This scatter plot compares machine learning model predictions with actual simula
 
 Points closer to the diagonal line indicate better model accuracy, demonstrating how effectively the model captures sediment transport dynamics.
 
+![alt text](https://github.com/Nelvinebi/Sediment-Transport-and-Coastal-Morphodynamics-Modeling-in-the-Niger-Delta-Using-ML/blob/1ea58fb67c29783dfa16f659d6f4ed12718b0feb/Scattered%20plot%20of%20Predicted%20vs%20Actual%20Sediment%20Transport.png)
+
 4️⃣ Scenario Prediction vs Historical Sediment Transport
 
 This visualization compares model predictions under simulated environmental scenarios with historical sediment transport behavior.
 
 The chart helps assess how well the model reproduces realistic coastal sediment transport patterns.
+
+![alt text](https://github.com/Nelvinebi/Sediment-Transport-and-Coastal-Morphodynamics-Modeling-in-the-Niger-Delta-Using-ML/blob/1ea58fb67c29783dfa16f659d6f4ed12718b0feb/Scenario%20Prediction%20Vs%20Historical%20Sediment%20Transport.png)
 
 5️⃣ Sensitivity of Sediment Transport to Wave Height
 
@@ -108,11 +118,15 @@ This sensitivity analysis explores how changes in wave height affect sediment tr
 
 The visualization highlights the strong influence of wave energy on sediment mobility along coastal systems.
 
+![alt text](https://github.com/Nelvinebi/Sediment-Transport-and-Coastal-Morphodynamics-Modeling-in-the-Niger-Delta-Using-ML/blob/1ea58fb67c29783dfa16f659d6f4ed12718b0feb/Sensitivity%20of%20Sediment%20Transport%20to%20Wave%20height.png)
+
 6️⃣ Storm vs Calm Condition Transport Comparison
 
 This comparison chart illustrates differences in sediment transport under storm conditions versus calm ocean states.
 
 The results demonstrate how extreme wave conditions can significantly increase sediment redistribution and coastal erosion risks.
+
+![alt text](https://github.com/Nelvinebi/Sediment-Transport-and-Coastal-Morphodynamics-Modeling-in-the-Niger-Delta-Using-ML/blob/1ea58fb67c29783dfa16f659d6f4ed12718b0feb/Storm%20vs%20Calm%20Condition%20Transport%20Comparison.png)
 
 📊 Dataset
 
