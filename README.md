@@ -1,8 +1,9 @@
-Sediment Transport and Coastal Morphodynamics Modeling in the Niger Delta Using Machine Learning
+# Sediment Transport and Coastal Morphodynamics Modeling in the Niger Delta Using Machine Learning
 
 A data-driven coastal modeling project that investigates sediment transport dynamics and shoreline morphodynamics in the Niger Delta using machine learning and synthetic oceanographic data.
 
 The project simulates realistic coastal conditions, predicts sediment transport rates, and analyzes morphodynamic behavior such as erosion and accretion processes, supporting coastal environmental analysis and spatial decision-making.
+![alt text](image.jpg)
 
 📌 Project Overview
 
