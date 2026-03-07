@@ -4,7 +4,7 @@ A data-driven coastal modeling project that investigates sediment transport dyna
 
 The project simulates realistic coastal conditions, predicts sediment transport rates, and analyzes morphodynamic behavior such as erosion and accretion processes, supporting coastal environmental analysis and spatial decision-making.
 
-![alt text]([image.jpg](https://github.com/Nelvinebi/Sediment-Transport-and-Coastal-Morphodynamics-Modeling-in-the-Niger-Delta-Using-ML/blob/main/3D%20Morphohodynamic%20Response%20Surface.png?raw=true))
+![alt text](https://github.com/Nelvinebi/Sediment-Transport-and-Coastal-Morphodynamics-Modeling-in-the-Niger-Delta-Using-ML/blob/main/3D%20Morphohodynamic%20Response%20Surface.png?raw=true)
 
 📌 Project Overview
 
