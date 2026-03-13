@@ -17,7 +17,7 @@ Machine learning analysis of sediment transport dynamics in the Niger Delta.
 """)
 
 # Load dataset
-df = pd.read_excel("data.xlsx")
+df = pd.read_excel("data/data.xlsx")
 
 # Sidebar navigation
 section = st.sidebar.radio(
